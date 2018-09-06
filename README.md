@@ -11,9 +11,9 @@ Share the application link by pasting it into the provided text box
 Share your server.R and ui.R code on github
 The application must include the following:
 
-*Some form of input (widget: textbox, radio button, checkbox, ...)
-*Some operation on the ui input in sever.R
-*Some reactive output displayed as a result of server calculations
+* Some form of input (widget: textbox, radio button, checkbox, ...)
+* Some operation on the ui input in sever.R
+* Some reactive output displayed as a result of server calculations
 
 You must also include enough documentation so that a novice user could use your application.
 The documentation should be at the Shiny website itself. Do not post to an external link.
