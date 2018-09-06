@@ -1,0 +1,61 @@
+##############################################################################
+#
+# FILE
+#   Server.R
+#
+# OVERVIEW
+#   Using data collected from the  
+#   “mtcars”,we want to predict the mpg of a car, through the various sliders in the application
+#   and through a Random Forest model.
+#   See README.md for details.
+#
+# Antonio Avella
+##############################################################################
+
+library(shiny)
+library(ggplot2)
+library(caret)
+library(randomForest)
+
+#
+# Defines the Random Forest model and predictor for mpg in the mtcars dataset.
+#
+source(file = "model.R")
+
+#
+# Setting up Shiny Server
+#
+shinyServer(
+        
+        function(input, output, session) {
+                
+                # To show new lines in the browser
+                decoratedDataStructure <- paste0(dataStructure, collapse = "<br/>")
+                output$dataStructure <- renderText({decoratedDataStructure})
+                
+                # Builds "reactively" the prediction.
+                predictMpg <- reactive({
+                        
+                        carToPredict <- data.frame(
+                                cyl = input$cyl, 
+                                disp = input$disp, 
+                                hp = input$hp, 
+                                drat = input$drat, 
+                                wt = input$wt, 
+                                qsec = input$qsec, 
+                                vs = as.numeric(input$vs), 
+                                am = as.numeric(input$am), 
+                                gear = input$gear, 
+                                carb = input$carb)
+                        
+                        randomForestPredictor(carsRandomForestModelBuilder(), carToPredict)
+                        
+                })
+                
+                output$prediction <- renderTable({
+                        predictMpg()
+                },striped = TRUE, bordered = TRUE, colnames = FALSE)
+                
+        }
+        
+)
