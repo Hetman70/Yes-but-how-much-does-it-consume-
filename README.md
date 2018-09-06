@@ -25,12 +25,13 @@ OK, you've made your shiny app, now it's time to make your pitch. You get 5 slid
 
 Here's what you need
 
-5 slides to pitch our idea done in Slidify or Rstudio Presenter
-Your presentation pushed to github or Rpubs
-A link to your github or Rpubs presentation pasted into the provided text box
+* 5 slides to pitch our idea done in Slidify or Rstudio Presenter
+* Your presentation pushed to github or Rpubs
+* A link to your github or Rpubs presentation pasted into the provided text box
+
 Your presentation must satisfy the following
 
-It must be done in Slidify or Rstudio Presenter
-It must be 5 pages
-It must be hosted on github or Rpubs
-It must contained some embedded R code that gets run when slidifying the document
+* It must be done in Slidify or Rstudio Presenter
+* It must be 5 pages
+* It must be hosted on github or Rpubs
+* It must contained some embedded R code that gets run when slidifying the document
